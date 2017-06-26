@@ -8,7 +8,9 @@
 
 # How to use:
 
+```
 <calendar-heatmap :entries=YOUR_ENTRIES :colorrange=YOUR_COLORRANGE :tooltipEnabled=true/false></calendar-heatmap>
+```
 
 ## Build Setup
 
