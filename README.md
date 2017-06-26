@@ -6,6 +6,8 @@
 
 ![Reusable D3.js Calendar Heatmap chart](https://raw.githubusercontent.com/DKirwan/calendar-heatmap/develop/example/thumbnail.png)
 
+# [Demo Link](https://dominikangerer.com/projects/vuejs-heatmap/)
+
 # How to use:
 
 ```
