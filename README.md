@@ -17,10 +17,7 @@ npm install --save vuejs-heatmap
 # 2. Import
 import VuejsHeatmap from 'vuejs-heatmap'
 
-# 3. Assign
-Vue.component('my-component', VuejsHeatmap)
-
-# 4. Use
+# 3. Use
 <VuejsHeatmap> </VuejsHeatmap>
 ```
 
