@@ -4,6 +4,7 @@
   "description": "A github style inspired heatmap capsuled as an easy to use vuejs component",
   "author": "Dominik Angerer <dominikangerer1@gmail.com>",
   "repository": "https://github.com/DominikAngerer/vue-heatmap",
+  "main": "src/main.js",
   "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
