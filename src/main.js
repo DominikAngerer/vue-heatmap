@@ -12,3 +12,5 @@ new Vue({
     'calendar-heatmap': Heatmap
   }
 })
+
+export default Heatmap
