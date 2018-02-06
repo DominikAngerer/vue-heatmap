@@ -1,5 +1,5 @@
 <template>
-<div class="heatmap-container"></div>
+<div class="vuejs-heatmap"></div>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ import { calendarHeatmap } from './calendar-heatmap.js'
 
 export default {
   props: ['entries', 'colorrange', 'tooltipEnabled'],
-  name: 'calendar-heatmap',
+  name: 'vuejs-heatmap',
   mounted() {
     this.initHeatMap()
   },
@@ -51,7 +51,7 @@ export default {
 
         let heatmap = calendarHeatmap.init()
                     .data(chartData)
-                    .selector('.heatmap-container')
+                    .selector('.vuejs-heatmap')
                     .tooltipEnabled(tooltipEnabled)
                     .colorRange(colorrange)
         heatmap();  // render the chart
@@ -61,18 +61,18 @@ export default {
 </script>
 
 <style>
-.heatmap-container text.month-name,
-.heatmap-container text.calendar-heatmap-legend-text,
-.heatmap-container text.day-initial {
+.vuejs-heatmap text.month-name,
+.vuejs-heatmap text.calendar-heatmap-legend-text,
+.vuejs-heatmap text.day-initial {
   font-size: 10px;
   fill: inherit;
   font-family: Helvetica, arial, 'Open Sans', sans-serif;
 }
-.heatmap-container rect.day-cell:hover {
+.vuejs-heatmap rect.day-cell:hover {
   stroke: #555555;
   stroke-width: 1px;
 }
-.heatmap-container .day-cell-tooltip {
+.vuejs-heatmap .day-cell-tooltip {
   position: absolute;
   z-index: 9999;
   padding: 5px 9px;
@@ -82,10 +82,10 @@ export default {
   border-radius: 3px;
   text-align: center;
 }
-.heatmap-container .day-cell-tooltip > span {
+.vuejs-heatmap .day-cell-tooltip > span {
   font-family: Helvetica, arial, 'Open Sans', sans-serif
 }
-.heatmap-container .calendar-heatmap {
+.vuejs-heatmap .calendar-heatmap {
   box-sizing: initial;
 }
 </style>

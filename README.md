@@ -11,8 +11,65 @@
 # How to use:
 
 ```
-<calendar-heatmap :entries=YOUR_ENTRIES :colorrange=YOUR_COLORRANGE :tooltipEnabled=true/false></calendar-heatmap>
+# 1. Install Vuejs heatmap
+npm install --save vuejs-heatmap
+
+# 2. Import
+import VuejsHeatmap from 'vuejs-heatmap'
+
+# 3. Assign
+Vue.component('my-component', VuejsHeatmap)
+
+# 4. Use
+<VuejsHeatmap> </VuejsHeatmap>
 ```
+
+## Props 
+
+### entries
+
+```
+[
+  {
+    "counting": 2070,
+    "created_at": "2017-06-21",
+    "id": 391
+  },
+  {
+    "counting": 3493,
+    "created_at": "2017-06-22",
+    "id": 875
+  },
+  {
+    "counting": 3207,
+    "created_at": "2017-06-23",
+    "id": 1381
+  },
+  {
+    "counting": 3199,
+    "created_at": "2017-06-24",
+    "id": 1896
+  },
+  {
+    "counting": 3121,
+    "created_at": "2017-06-25",
+    "id": 2416
+  }
+]
+```
+
+### colorrange 
+
+```
+['#c9ecec', '#09b3af']
+```
+
+### tooltipEnabled 
+
+```
+true/false
+```
+
 
 ## Build Setup
 
