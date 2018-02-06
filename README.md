@@ -67,6 +67,12 @@ import VuejsHeatmap from 'vuejs-heatmap'
 true/false
 ```
 
+### tooltipUnit
+
+```
+'Stars'
+```
+
 
 ## Build Setup
 
