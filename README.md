@@ -21,7 +21,7 @@ import VuejsHeatmap from 'vuejs-heatmap'
 <VuejsHeatmap> </VuejsHeatmap>
 ```
 
-## Props 
+## Props
 
 ### entries
 
@@ -55,13 +55,13 @@ import VuejsHeatmap from 'vuejs-heatmap'
 ]
 ```
 
-### colorrange 
+### colorRange 
 
 ```
 ['#c9ecec', '#09b3af']
 ```
 
-### tooltipEnabled 
+### tooltipEnabled
 
 ```
 true/false

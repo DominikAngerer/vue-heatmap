@@ -9,21 +9,26 @@ import * as d3 from 'd3'
 import { calendarHeatmap } from './calendar-heatmap.js'
 
 export default {
-  props: ['entries', 'colorrange', 'tooltipEnabled', 'tooltipUnit'],
+  props: ['entries', 'colorRange', 'tooltipEnabled', 'tooltipUnit'],
   name: 'vuejs-heatmap',
   mounted() {
-    this.initHeatMap()
+    this.renderHeatMap()
+  },
+  watch: {
+    entries: function() {
+      this.renderHeatMap()
+    }
   },
   methods: {
-    initHeatMap() {
+    renderHeatMap() {
       let entries = this.entries
         if(!entries) {
           entries = [{"id":391,"counting":2070,"created_at":"2017-06-21"},{"id":875,"counting":3493,"created_at":"2017-06-22"},{"id":1381,"counting":3207,"created_at":"2017-06-23"},{"id":1896,"counting":3199,"created_at":"2017-06-24"},{"id":2416,"counting":3121,"created_at":"2017-06-25"}]
         }
 
-        let colorrange = this.colorrange
-        if(!colorrange) {
-          colorrange = ['#c9ecec', '#09b3af']
+        let colorRange = this.colorRange
+        if(!colorRange) {
+          colorRange = ['#c9ecec', '#09b3af']
         }
 
         let tooltipEnabled = this.tooltipEnabled
@@ -39,7 +44,7 @@ export default {
 
         let now = moment().endOf('day').toDate()
         let yearAgo = moment().startOf('day').subtract(1, 'year').toDate()
-        
+
         let chartData = d3.time.days(yearAgo, now).map((dateElement) => {
           return {
             date: dateElement,
@@ -58,7 +63,7 @@ export default {
                     .data(chartData)
                     .selector('.vuejs-heatmap')
                     .tooltipEnabled(tooltipEnabled)
-                    .colorRange(colorrange)
+                    .colorRange(colorRange)
                     .tooltipUnit(tooltipUnit)
         heatmap()  // render the chart
     }
