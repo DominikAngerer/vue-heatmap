@@ -9,7 +9,7 @@ import * as d3 from 'd3'
 import { calendarHeatmap } from './calendar-heatmap.js'
 
 export default {
-  props: ['entries', 'colorRange', 'tooltipEnabled', 'tooltipUnit', 'max'],
+  props: ['entries', 'colorRange', 'tooltipEnabled', 'tooltipUnit', 'max', 'onClick'],
   name: 'vuejs-heatmap',
   mounted() {
     this.renderHeatMap()
@@ -67,6 +67,7 @@ export default {
                     .colorRange(colorRange)
                     .tooltipUnit(tooltipUnit)
         if(max) heatmap.max(max)
+        if(this.onClick) heatmap.onClick(this.onClick)
         heatmap()  // render the chart
     }
   }
