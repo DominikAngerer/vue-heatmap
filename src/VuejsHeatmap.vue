@@ -9,7 +9,7 @@ import * as d3 from 'd3'
 import { calendarHeatmap } from './calendar-heatmap.js'
 
 export default {
-  props: ['entries', 'colorRange', 'tooltipEnabled', 'tooltipUnit'],
+  props: ['entries', 'colorRange', 'tooltipEnabled', 'tooltipUnit', 'max'],
   name: 'vuejs-heatmap',
   mounted() {
     this.renderHeatMap()
@@ -41,6 +41,7 @@ export default {
           tooltipUnit = 'Stars'
         }
 
+        let max = this.max
 
         let now = moment().endOf('day').toDate()
         let yearAgo = moment().startOf('day').subtract(1, 'year').toDate()
@@ -65,6 +66,7 @@ export default {
                     .tooltipEnabled(tooltipEnabled)
                     .colorRange(colorRange)
                     .tooltipUnit(tooltipUnit)
+        if(max) heatmap.max(max)
         heatmap()  // render the chart
     }
   }
