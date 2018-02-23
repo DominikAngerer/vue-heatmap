@@ -1,5 +1,5 @@
 <template>
-<div class="vuejs-heatmap"></div>
+  <div class="vuejs-heatmap"></div>
 </template>
 
 <script>
@@ -9,66 +9,52 @@ import * as d3 from 'd3'
 import { calendarHeatmap } from './calendar-heatmap.js'
 
 export default {
-  props: ['entries', 'colorRange', 'tooltipEnabled', 'tooltipUnit', 'max', 'onClick'],
+  props: ['entries', 'colorRange', 'tooltipEnabled', 'tooltipUnit', 'locale', 'max', 'onClick'],
   name: 'vuejs-heatmap',
   mounted() {
     this.renderHeatMap()
   },
   watch: {
-    entries: function() {
+    entries() {
       this.renderHeatMap()
     }
   },
   methods: {
     renderHeatMap() {
-      let entries = this.entries
-        if(!entries) {
-          entries = [{"id":391,"counting":2070,"created_at":"2017-06-21"},{"id":875,"counting":3493,"created_at":"2017-06-22"},{"id":1381,"counting":3207,"created_at":"2017-06-23"},{"id":1896,"counting":3199,"created_at":"2017-06-24"},{"id":2416,"counting":3121,"created_at":"2017-06-25"}]
-        }
+      let entries = this.entries || [{"counting":2070,"created_at":"2017-06-21"},{"counting":3493,"created_at":"2017-06-22"}]
 
-        let colorRange = this.colorRange
-        if(!colorRange) {
-          colorRange = ['#c9ecec', '#09b3af']
-        }
+      let now = moment().endOf('day').toDate()
+      let yearAgo = moment().startOf('day').subtract(1, 'year').toDate()
 
-        let tooltipEnabled = this.tooltipEnabled
-        if(!tooltipEnabled) {
-          tooltipEnabled = true
-        }
-
-        let tooltipUnit = this.tooltipUnit
-        if(!tooltipUnit) {
-          tooltipUnit = 'Stars'
-        }
-
-        let max = this.max
-
-        let now = moment().endOf('day').toDate()
-        let yearAgo = moment().startOf('day').subtract(1, 'year').toDate()
-
-        let chartData = d3.time.days(yearAgo, now).map((dateElement) => {
-          return {
-            date: dateElement,
-            count: ((dateElement) => {
-              let heatmapEntry = _.find(entries, {created_at: moment(dateElement).format('YYYY-MM-DD')})
-              if(!heatmapEntry) {
-                return 0
-              } else {
-                return heatmapEntry.counting
-              }
-            })(dateElement)
+      let data = d3.time.days(yearAgo, now).map((dateElement) => {
+        let entry = ((dateElement) => {
+          let heatmapEntry = _.find(entries, {created_at: moment(dateElement).format('YYYY-MM-DD')})
+          if(!heatmapEntry) {
+            return { counting: 0 }
+          } else {
+            return heatmapEntry
           }
-        })
+        })(dateElement)
 
-        let heatmap = calendarHeatmap.init()
-                    .data(chartData)
-                    .selector('.vuejs-heatmap')
-                    .tooltipEnabled(tooltipEnabled)
-                    .colorRange(colorRange)
-                    .tooltipUnit(tooltipUnit)
-        if(max) heatmap.max(max)
-        if(this.onClick) heatmap.onClick(this.onClick)
-        heatmap()  // render the chart
+        return {
+          date: dateElement,
+          count: entry.counting,
+          entry: entry
+        }
+      })
+
+      let heatmap = calendarHeatmap.init().data(data).selector('.vuejs-heatmap')
+
+      if( typeof this.colorRange !== 'undefined' ) heatmap.colorRange(this.colorRange)
+      if( typeof this.tooltipEnabled !== 'undefined' ) heatmap.tooltipEnabled(this.tooltipEnabled)
+      if( typeof this.tooltipUnit !== 'undefined' ) heatmap.tooltipUnit(this.tooltipUnit)
+      if( typeof this.locale !== 'undefined' ) heatmap.locale(this.locale)
+      if( typeof this.width !== 'undefined' ) heatmap.width(this.width)
+      if( typeof this.height !== 'undefined' ) heatmap.height(this.height)
+      if( typeof this.max !== 'undefined' ) heatmap.max(this.max)
+      if( typeof this.onClick !== 'undefined' ) heatmap.onClick(this.onClick)
+
+      heatmap()  // render the chart
     }
   }
 }

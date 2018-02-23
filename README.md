@@ -23,54 +23,70 @@ import VuejsHeatmap from 'vuejs-heatmap'
 
 ## Props
 
-### entries
+### entries `entries`
 
 ```
 [
   {
     "counting": 2070,
-    "created_at": "2017-06-21",
-    "id": 391
+    "created_at": "2018-06-21"
   },
   {
     "counting": 3493,
-    "created_at": "2017-06-22",
-    "id": 875
-  },
-  {
-    "counting": 3207,
-    "created_at": "2017-06-23",
-    "id": 1381
-  },
-  {
-    "counting": 3199,
-    "created_at": "2017-06-24",
-    "id": 1896
-  },
-  {
-    "counting": 3121,
-    "created_at": "2017-06-25",
-    "id": 2416
+    "created_at": "2018-06-22"
   }
 ]
 ```
 
-### colorRange 
+### colorRange `color-range`
 
 ```
 ['#c9ecec', '#09b3af']
 ```
 
-### tooltipEnabled
+### tooltipEnabled `tooltip-enabled`
 
 ```
 true/false
 ```
 
-### tooltipUnit
+### tooltipUnit `tooltip-unit`
 
 ```
-'Stars'
+'Star'
+```
+
+### locale `locale`
+
+```
+{
+  months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+  No: 'No',
+  on: 'on',
+  Less: 'Less',
+  More: 'More'
+}
+```
+
+### max `max`
+
+Any number which should be the max color.
+
+### onClick `on-click`
+
+A function that should be called if clicked, will receive an object as first parameter:
+
+```
+{
+  count: 123,
+  date: DateObject,
+  entry: { 
+    counting: 123,
+    created_at: "2018-01-24"
+    // every property you pass in your entries.
+  }
+}
 ```
 
 
