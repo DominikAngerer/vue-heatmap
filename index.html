@@ -5,23 +5,63 @@
     <title>vue-heatmap</title>
   </head>
   <body>
-    <vuejs-heatmap 
-      :entries="[{id:1,counting:3493,created_at:'2018-01-24'},{id:2,counting:2070,created_at:'2018-02-23'}]"
-      :tooltip-enabled="true" 
-      :color-range="['#c9ecec', 'orange']"
-      :tooltip-unit="'Frog'"
-      :legend-enabled="false"
-      :locale="{
-  months: ['YZA', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-  days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-  No: 'No',
-  on: 'on',
-  Less: 'Less',
-  More: 'More'
-}"
-    :max="3500"
-    :on-click=test>
-    </vuejs-heatmap>
+    <div id="root">
+      <vuejs-heatmap
+        :entries="[{id:1,counting:412,created_at:'2018-01-20'},{id:2,counting:512,created_at:'2018-02-24'},{id:3,counting:622,created_at:'2018-03-24'}]"
+        :tooltip-enabled="true" 
+        :color-range="['#c9ecec', 'orange']"
+        :tooltip-unit="'Frog'"
+        :legend-enabled="false"
+        :locale="{
+      months: ['YZA', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+      No: 'No',
+      on: 'on',
+      Less: 'Less',
+      More: 'More'
+    }"
+        :max="700"
+        :on-click=test>
+      </vuejs-heatmap>
+
+      <vuejs-heatmap 
+        :selector="'myFirstCustomSelector'"
+        :entries="[{id:1,counting:1,created_at:'2018-01-24'},{id:2,counting:2,created_at:'2018-02-23'}]"
+        :tooltip-enabled="true" 
+        :color-range="['#c9ecec', 'orange']"
+        :tooltip-unit="'Frog'"
+        :legend-enabled="false"
+        :locale="{
+      months: ['YZA', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+      No: 'No',
+      on: 'on',
+      Less: 'Less',
+      More: 'More'
+    }"
+        :max="5"
+        :on-click=test>
+      </vuejs-heatmap>
+
+      <vuejs-heatmap 
+        :selector="'mySecondCustomSelector'"
+        :entries="[{id:1,counting:1245,created_at:'2018-01-24'},{id:2,counting:231,created_at:'2018-02-23'}]"
+        :tooltip-enabled="true" 
+        :color-range="['#c9ecec', 'orange']"
+        :tooltip-unit="'Frog'"
+        :legend-enabled="false"
+        :locale="{
+      months: ['YZA', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+      No: 'No',
+      on: 'on',
+      Less: 'Less',
+      More: 'More'
+    }"
+        :max="3500"
+        :on-click=test>
+      </vuejs-heatmap>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>

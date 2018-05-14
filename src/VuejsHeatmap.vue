@@ -1,5 +1,5 @@
 <template>
-  <div class="vuejs-heatmap"></div>
+  <div class="vuejs-heatmap" :class="selector"></div>
 </template>
 
 <script>
@@ -9,7 +9,7 @@ import * as d3 from 'd3'
 import { calendarHeatmap } from './calendar-heatmap.js'
 
 export default {
-  props: ['entries', 'colorRange', 'tooltipEnabled', 'tooltipUnit', 'locale', 'max', 'onClick'],
+  props: ['entries', 'colorRange', 'tooltipEnabled', 'tooltipUnit', 'locale', 'max', 'onClick', 'selector'],
   name: 'vuejs-heatmap',
   mounted() {
     this.renderHeatMap()
@@ -18,7 +18,7 @@ export default {
     entries() {
       this.renderHeatMap()
     }
-  },
+  }, 
   methods: {
     renderHeatMap() {
       let entries = this.entries || [{"counting":2070,"created_at":"2017-06-21"},{"counting":3493,"created_at":"2017-06-22"}]
@@ -45,6 +45,7 @@ export default {
 
       let heatmap = calendarHeatmap.init().data(data).selector('.vuejs-heatmap')
 
+      if( typeof this.selector !== 'undefined') heatmap.selector(`.${this.selector}`)
       if( typeof this.colorRange !== 'undefined' ) heatmap.colorRange(this.colorRange)
       if( typeof this.tooltipEnabled !== 'undefined' ) heatmap.tooltipEnabled(this.tooltipEnabled)
       if( typeof this.tooltipUnit !== 'undefined' ) heatmap.tooltipUnit(this.tooltipUnit)

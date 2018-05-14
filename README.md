@@ -18,10 +18,18 @@ npm install --save vuejs-heatmap
 import VuejsHeatmap from 'vuejs-heatmap'
 
 # 3. Use
-<VuejsHeatmap> </VuejsHeatmap>
+<vuejs-heatmap></vuejs-heatmap>
 ```
 
 ## Props
+
+### selector `selector`
+
+Any string which should be the selector, use it for multiple heatmaps on one site.
+
+```
+'myFirstSelector'
+```
 
 ### entries `entries`
 
