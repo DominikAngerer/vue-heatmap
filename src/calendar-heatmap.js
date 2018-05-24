@@ -117,7 +117,7 @@ export let calendarHeatmap = {
   d3.select(chart.selector()).selectAll('svg.calendar-heatmap').remove() // remove the existing chart, if it exists
 
   let dateRange = d3.time.days(yearAgo, now) // generates an array of date objects within the specified range
-  let monthRange = d3.time.months(moment(yearAgo).startOf('month').toDate(), now) // it ignores the first month if the 1st date is after the start of the month
+  let monthRange = d3.time.months(moment(yearAgo).startOf('month').add(1, 'month').toDate(), now) // it ignores the first month if the 1st date is after the start of the month
   let firstDate = moment(dateRange[0])
 
   if (max === null) { 
