@@ -12,13 +12,13 @@
 
 ```
 # 1. Install Vuejs heatmap
-npm install --save vuejs-heatmap
+npm install --save vue-chart-heatmap
 
 # 2. Import
-import VuejsHeatmap from 'vuejs-heatmap'
+import VueChartHeatmap from 'vue-chart-heatmap'
 
 # 3. Use
-<vuejs-heatmap></vuejs-heatmap>
+<vue-chart-heatmap></vue-chart-heatmap>
 ```
 
 ## Props
@@ -89,7 +89,7 @@ A function that should be called if clicked, will receive an object as first par
 {
   count: 123,
   date: DateObject,
-  entry: { 
+  entry: {
     counting: 123,
     created_at: "2018-01-24"
     // every property you pass in your entries.
@@ -97,10 +97,9 @@ A function that should be called if clicked, will receive an object as first par
 }
 ```
 
-
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -115,6 +114,5 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
 
 # Thanks [@DKirwan](https://github.com/DKirwan) for the initial calendar-heatmap.
