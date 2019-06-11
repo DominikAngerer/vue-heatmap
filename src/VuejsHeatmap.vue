@@ -88,11 +88,6 @@ export default {
 </script>
 
 <style>
-:root {
-  --primary-color: black;
-  --border-color: #555555;
-}
-
 .vuejs-heatmap text.month-name,
 .vuejs-heatmap text.calendar-heatmap-legend-text,
 .vuejs-heatmap text.day-initial {
@@ -101,14 +96,14 @@ export default {
   font-family: Helvetica, arial, "Open Sans", sans-serif;
 }
 .vuejs-heatmap rect.day-cell:hover {
-  stroke: var(--border-color);
+  stroke: #555555;
   stroke-width: 1px;
 }
 .vuejs-heatmap .day-cell-tooltip {
   position: absolute;
   z-index: 9999;
   padding: 5px 9px;
-  color: var(--primary-color);
+  color: #bbbbbb;
   font-size: 12px;
   background: rgba(0, 0, 0, 0.85);
   border-radius: 3px;
